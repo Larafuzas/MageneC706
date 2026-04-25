@@ -1,1 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Magene C706</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --sidebar-width: 280px;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Sidebar Styles */
+        #sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--primary-color);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        #sidebar h2 {
+            text-align: center;
+            padding: 20px 10px;
+            margin: 0;
+            background-color: #1a252f;
+            font-size: 1.2rem;
+        }
+
+        #search-container {
+            padding: 15px;
+            background-color: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        #search-box {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+        }
+
+        ul#menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul#menu li {
+            border-bottom: 1px solid #34495e;
+        }
+
+        ul#menu li a {
+            display: block;
+            padding: 15px 20px;
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        ul#menu li a:hover, ul#menu li a.active {
+            background-color: var(--secondary-color);
+        }
+
+        /* Main Content Styles */
+        #main-content {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+            flex: 1;
+            max-width: 900px;
+        }
+
+        section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            display: none; /* Hidden by default */
+        }
+
+        section.active-section {
+            display: block;
+        }
+
+        h1 { color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; }
+        h3 { color: var(--secondary-color); margin-top: 25px; }
+        
+        img.responsive {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: var(--primary-color); color: white; }
+
+        .citation { font-size: 0.8em; color: #7f8c8d; vertical-align: super; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            #sidebar { width: 100%; height: auto; position: relative; }
+            #main-content { margin-left: 0; padding: 20px; }
+            #search-container { position: relative; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="sidebar">
+        <h2>Magene C706 Manual</h2>
+        <div id="search-container">
+            <input type="text" id="search-box" placeholder="Buscar en el manual..." onkeyup="searchManual()">
+        </div>
+        <ul id="menu">
+            <li><a onclick="showSection('inicio')" class="nav-link active" id="link-inicio">Inicio y Resumen</a></li>
+            <li><a onclick="showSection('montaje')" class="nav-link" id="link-montaje">Montaje y Carga</a></li>
+            <li><a onclick="showSection('operacion')" class="nav-link" id="link-operacion">Operación Básica</a></li>
+            <li><a onclick="showSection('conectividad')" class="nav-link" id="link-conectividad">App y Sensores</a></li>
+            <li><a onclick="showSection('navegacion')" class="nav-link" id="link-navegacion">Navegación y Mapas</a></li>
+            <li><a onclick="showSection('climbpro')" class="nav-link" id="link-climbpro">Climb Pro y Entrenos</a></li>
+            <li><a onclick="showSection('opciones')" class="nav-link" id="link-opciones">Star Ring y Asistente</a></li>
+            <li><a onclick="showSection('faq')" class="nav-link" id="link-faq">Resolución de Problemas</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        
+        <section id="inicio" class="active-section content-section">
+            <h1>Esquema Visual y Resumen</h1>
+            [span_0](start_span)<p>Bienvenido al manual interactivo del ciclocomputador GPS inteligente Magene C706 <span class="citation">[span_0](end_span)</span>.</p>
+            <img src="image.png" alt="Esquema Visual Magene C706" class="responsive">
+            <p>Utilice el menú lateral para navegar por las diferentes funciones del dispositivo, o utilice la barra de búsqueda para encontrar configuraciones específicas rápidamente.</p>
+        </section>
+
+        <section id="montaje" class="content-section">
+            <h1>Montaje y Carga</h1>
+            <h3>Pasos de Instalación</h3>
+            <ul>
+                [span_1](start_span)<li>Paso 1: Coloque el soporte en el manillar <span class="citation">[span_1](end_span)</span>.</li>
+                [span_2](start_span)<li>Paso 2: Asegure el soporte con las bandas de goma <span class="citation">[span_2](end_span)</span>.</li>
+                [span_3](start_span)<li>Paso 3: Instale el ciclocomputador siguiendo la dirección indicada por la flecha y gírelo <span class="citation">[span_3](end_span)</span>.</li>
+                [span_4](start_span)<li>Paso 4: Instalación completada <span class="citation">[span_4](end_span)</span>.</li>
+            </ul>
+            
+            <h3>Instrucciones de Carga</h3>
+            <ul>
+                [span_5](start_span)<li>Retire la almohadilla de goma en el centro de la parte inferior para conectar el cable <span class="citation">[span_5](end_span)</span>.</li>
+                [span_6](start_span)<li>La interfaz de carga es de tipo USB-C <span class="citation">[span_6](end_span)</span>.</li>
+                [span_7](start_span)<li>El tiempo de carga es de aproximadamente 3 horas y soporta carga mientras está en uso <span class="citation">[span_7](end_span)</span>.</li>
+                [span_8](start_span)<li>Cuando la batería está baja, el ícono en la esquina superior derecha se volverá rojo y emitirá una alerta <span class="citation">[span_8](end_span)</span>.</li>
+            </ul>
+        </section>
+
+        <section id="operacion" class="content-section">
+            <h1>Operación Básica y Botones</h1>
+            <h3>Encendido y Apagado</h3>
+            [span_9](start_span)<p>Para encender, mantenga pulsado el botón superior izquierdo (A) <span class="citation">[span_9](end_span)</span>. [span_10](start_span)Para apagar, mantenga pulsado el mismo botón cuando no se esté grabando ninguna ruta <span class="citation">[span_10](end_span)</span>. [span_11](start_span)El dispositivo no se puede apagar mientras una grabación esté activa <span class="citation">[span_11](end_span)</span>.</p>
+            
+            <h3>Funciones de los Botones</h3>
+            <table>
+                <tr>
+                    <th>Botón</th>
+                    <th>Pulsación Corta (Sin Ruta)</th>
+                    <th>Pulsación Corta (En Ruta)</th>
+                </tr>
+                <tr>
+                    <td><strong>A (Arriba)</strong></td>
+                    [span_12](start_span)<td>Retorno / Apagar pantalla <span class="citation">[span_12](end_span)</span></td>
+                    [span_13](start_span)<td>Vueltas (Laps) <span class="citation">[span_13](end_span)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>B (Abajo Izq.)</strong></td>
+                    [span_14](start_span)<td>Sin función específica <span class="citation">[span_14](end_span)</span></td>
+                    [span_15](start_span)<td>Timbre <span class="citation">[span_15](end_span)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>C (Abajo Der.)</strong></td>
+                    [span_16](start_span)<td>Iniciar ruta / Confirmar <span class="citation">[span_16](end_span)</span></td>
+                    [span_17](start_span)<td>Pausar / Continuar ruta <span class="citation">[span_17](end_span)</span></td>
+                </tr>
+            </table>
+            
+            <h3>Bloqueo de Pantalla</h3>
+            [span_18](start_span)[span_19](start_span)<p>Durante la grabación, mantenga pulsado el botón A para acceder al menú y seleccione "Bloquear pantalla" mediante el botón C <span class="citation">[span_18](end_span)[span_19](end_span)</span>. [span_20](start_span)El dispositivo se desbloquea manteniendo pulsado el botón A nuevamente <span class="citation">[span_20](end_span)</span>.</p>
+        </section>
+
+        <section id="conectividad" class="content-section">
+            <h1>App OnelapFit y Sensores</h1>
+            <h3>Activación del Dispositivo</h3>
+            [span_21](start_span)<p>Después del primer encendido, seleccione el idioma para mostrar un código QR <span class="citation">[span_21](end_span)</span>. [span_22](start_span)Escanéelo usando la aplicación OnelapFit para completar la activación y vinculación <span class="citation">[span_22](end_span)</span>. [span_23](start_span)Las actualizaciones de firmware se buscan automáticamente por Wi-Fi o Bluetooth <span class="citation">[span_23](end_span)</span>.</p>
+            
+            <h3>Sensores Compatibles (ANT+ / BLE)</h3>
+            [span_24](start_span)<p>Se admiten los siguientes tipos de sensores: frecuencia cardíaca, velocidad, cadencia, potencia, rodillo, radar, cambios electrónicos, luces y cámaras <span class="citation">[span_24](end_span)</span>.</p>
+            <ul>
+                [span_25](start_span)<li><strong>Luces:</strong> Se pueden conectar hasta 5 luces ANT+ simultáneamente <span class="citation">[span_25](end_span)</span>.</li>
+                [span_26](start_span)<li><strong>Radares:</strong> Al conectarse, puede elegir mostrar las alertas de tráfico en el lado izquierdo o derecho de la pantalla <span class="citation">[span_26](end_span)</span>.</li>
+                [span_27](start_span)<li><strong>Cámaras de acción:</strong> Soporta modelos como DJI Action 4/5 Pro y Insta360 X4/X5 <span class="citation">[span_27](end_span)</span>. [span_28](start_span)Se puede controlar la grabación directamente desde la pantalla del C706 <span class="citation">[span_28](end_span)</span>.</li>
+            </ul>
+        </section>
+
+        <section id="navegacion" class="content-section">
+            <h1>Navegación y Mapas offline</h1>
+            <h3>Descarga de Mapas</h3>
+            [span_29](start_span)<p>El dispositivo no trae mapas precargados; debe configurar el Wi-Fi vía OnelapFit y descargar la región deseada <span class="citation">[span_29](end_span)</span>. [span_30](start_span)Tenga en cuenta que los archivos muy grandes aumentan el tiempo de descarga (ej. 2GB toman aprox. 3 horas) <span class="citation">[span_30](end_span)</span>. [span_31](start_span)Las descargas solo se realizan por Wi-Fi <span class="citation">[span_31](end_span)</span>.</p>
+            
+            <h3>Rutas y Desvíos</h3>
+            <ul>
+                [span_32](start_span)<li><strong>Recálculo:</strong> Si se desvía más de 100 metros, recibe una alerta <span class="citation">[span_32](end_span)</span>. [span_33](start_span)A los 150 metros, se activa el recálculo automático de ruta online mediante OnelapFit <span class="citation">[span_33](end_span)</span>.</li>
+                [span_34](start_span)<li><strong>Estrategias de recálculo:</strong> Puede elegir entre "Intersección más cercana" o apuntar en "Dirección al destino" <span class="citation">[span_34](end_span)</span>.</li>
+                [span_35](start_span)<li><strong>Retorno al inicio:</strong> Puede generar automáticamente una ruta de vuelta a las coordenadas de inicio deslizando hacia arriba durante la ruta <span class="citation">[span_35](end_span)</span>.</li>
+            </ul>
+        </section>
+
+        <section id="climbpro" class="content-section">
+            <h1>Climb Pro, Segmentos y Entrenamientos</h1>
+            <h3>Función Climb Pro</h3>
+            [span_36](start_span)<p>Define una subida cuando la longitud es ≥ 400m y la pendiente promedio es ≥ 2.5% <span class="citation">[span_36](end_span)</span>. [span_37](start_span)Las subidas se clasifican mediante una puntuación (Longitud x Pendiente) en <span class="citation">[span_37](end_span)</span>:</p>
+            <ul>
+                [span_38](start_span)<li>Cat4: 1000 a 2399 <span class="citation">[span_38](end_span)</span>.</li>
+                [span_39](start_span)<li>Cat3: 2400 a 6999 <span class="citation">[span_39](end_span)</span>.</li>
+                [span_40](start_span)<li>Cat2: 7000 a 14999 <span class="citation">[span_40](end_span)</span>.</li>
+                [span_41](start_span)<li>Cat1: 15000 a 23999 <span class="citation">[span_41](end_span)</span>.</li>
+                [span_42](start_span)<li>HC: Mayor o igual a 24000 <span class="citation">[span_42](end_span)</span>.</li>
+            </ul>
+            [span_43](start_span)<p>El dispositivo avisará 100 metros antes de comenzar el ascenso <span class="citation">[span_43](end_span)</span>.</p>
+            
+            <h3>Segmentos Strava</h3>
+            [span_44](start_span)[span_45](start_span)<p>El C706 soporta segmentos Strava favoritos (requiere suscripción) <span class="citation">[span_44](end_span)[span_45](end_span)</span>. [span_46](start_span)[span_47](start_span)Al acercarse, muestra la distancia restante y puede comparar el tiempo con su PR o el KOM/QOM <span class="citation">[span_46](end_span)[span_47](end_span)</span>.</p>
+
+            <h3>Entrenamiento Libre Indoor</h3>
+            [span_48](start_span)[span_49](start_span)<p>Ofrece tres modos para rodillos inteligentes: Potencia Objetivo (40%-150% FTP), Modo de Resistencia (0%-100%) y Modo de Grado/Pendiente (0%-20%) <span class="citation">[span_48](end_span)[span_49](end_span)</span>.</p>
+        </section>
+
+        <section id="opciones" class="content-section">
+            <h1>Star Ring y Asistente Inteligente</h1>
+            <h3>Luz Ambiental Star Ring</h3>
+            [span_50](start_span)<p>La franja luminosa frontal soporta modos y colores personalizables <span class="citation">[span_50](end_span)</span>.</p>
+            <ul>
+                [span_51](start_span)<li><strong>Modos:</strong> Encendido fijo, Respiración y Parpadeo <span class="citation">[span_51](end_span)</span>.</li>
+                [span_52](start_span)<li><strong>Colores:</strong> 12 colores fijos o modo aleatorio (cambia de color cada 15 segundos) <span class="citation">[span_52](end_span)</span>.</li>
+                [span_53](start_span)<li>En el modo de batería de larga duración, el Star Ring se desactiva automáticamente <span class="citation">[span_53](end_span)</span>.</li>
+            </ul>
+
+            <h3>Asistente Inteligente y Comandos</h3>
+            <p>Permite crear escenarios automatizados. [span_54](start_span)Por ejemplo <span class="citation">[span_54](end_span)</span>:</p>
+            <ul>
+                [span_55](start_span)[span_56](start_span)<li>Si la frecuencia cardíaca supera los 180 BPM, emitir una alerta sonora <span class="citation">[span_55](end_span)[span_56](end_span)</span>.</li>
+                [span_57](start_span)[span_58](start_span)<li>Apagar o encender las luces de la bicicleta automáticamente basándose en condiciones de luz o velocidad <span class="citation">[span_57](end_span)[span_58](end_span)</span>.</li>
+            </ul>
+            
+            <h3>Notificaciones de Mensajes</h3>
+            [span_59](start_span)<p>Activando los permisos en OnelapFit, el C706 puede recibir llamadas y mensajes del teléfono <span class="citation">[span_59](end_span)</span>. [span_60](start_span)Si está en modo "No molestar", las ventanas emergentes no se mostrarán en pantalla <span class="citation">[span_60](end_span)</span>.</p>
+        </section>
+
+        <section id="faq" class="content-section">
+            <h1>Resolución de Problemas (FAQ)</h1>
+            <h3>El equipo no enciende o está congelado</h3>
+            <ul>
+                [span_61](start_span)<li>Verifique si hay animación de carga; si aparece, cárguelo por 15-30 minutos <span class="citation">[span_61](end_span)</span>.</li>
+                [span_62](start_span)<li>Para un reinicio forzado, mantenga pulsados simultáneamente los dos botones físicos inferiores durante 20 segundos hasta escuchar un pitido <span class="citation">[span_62](end_span)</span>.</li>
+            </ul>
+
+            <h3>Problemas de Posicionamiento GPS</h3>
+            <ul>
+                [span_63](start_span)<li>Asegúrese de estar en modo exterior (el modo indoor desactiva el GPS) <span class="citation">[span_63](end_span)</span>.</li>
+                [span_64](start_span)<li>Sincronice los datos de satélites AGNSS mediante Wi-Fi o OnelapFit para acelerar el proceso <span class="citation">[span_64](end_span)</span>.</li>
+            </ul>
+
+            <h3>Los mapas no se muestran</h3>
+            <ul>
+                [span_65](start_span)<li>Asegúrese de que el archivo descargado aparezca "En uso" <span class="citation">[span_65](end_span)</span>.</li>
+                [span_66](start_span)<li>Revise la escala: la red completa de calles solo es visible en escalas de 50m a 200m <span class="citation">[span_66](end_span)</span>. [span_67](start_span)Entre 500m y 20km solo se ven carreteras principales <span class="citation">[span_67](end_span)</span>.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script>
+        // Funcionalidad de navegación por pestañas
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(sec => sec.classList.remove('active-section'));
+            
+            // Quitar clase active de todos los enlaces
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => link.classList.remove('active'));
+            
+            // Mostrar la sección seleccionada y marcar el enlace
+            document.getElementById(sectionId).classList.add('active-section');
+            document.getElementById('link-' + sectionId).classList.add('active');
+            
+            // Desplazar hacia arriba (útil en móviles)
+            window.scrollTo(0, 0);
+        }
+
+        // Funcionalidad de Búsqueda simple
+        function searchManual() {
+            let input = document.getElementById('search-box').value.toLowerCase();
+            const sections = document.querySelectorAll('.content-section');
+            let firstMatchId = null;
+
+            sections.forEach(sec => {
+                // Obtenemos el texto puro de la sección
+                let text = sec.innerText.toLowerCase();
+                
+                // Si el input está vacío, restauramos a la vista inicial (Inicio)
+                if (input === "") {
+                    showSection('inicio');
+                    return;
+                }
+
+                // Si hay coincidencia, la mostramos. Si no, la ocultamos.
+                if (text.includes(input)) {
+                    sec.style.display = 'block'; // Mostramos todas las que coinciden
+                    // Actualizamos el menú visualmente (opcional)
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+
+            // Lógica para que los botones de navegación sigan funcionando después de buscar
+            if (input !== "") {
+                // Al buscar, forzamos mostrar u ocultar saltándonos la clase active temporalmente
+                sections.forEach(sec => sec.classList.remove('active-section'));
+            }
+        }
+    </script>
+</body>
+</html>
